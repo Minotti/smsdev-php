@@ -164,7 +164,7 @@ class SmsDev
      * Set jobdate to next request
      *
      * @param string $jobDate Date format DD/MM/YYYY.
-     * @return void
+     * @return SmsDev Return itself for chaining.
      */
     public function setJobDate($jobDate)
     {
@@ -187,7 +187,7 @@ class SmsDev
      * Set jobdate to next request
      *
      * @param string $jobTime Time format HH:mm.
-     * @return void
+     * @return SmsDev Return itself for chaining.
      */
     public function setJobTime($jobTime)
     {
