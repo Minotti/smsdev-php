@@ -1,5 +1,5 @@
 {
-    "name": "enricodias/smsdev",
+    "name": "mminotti/smsdev",
     "type": "library",
     "license": "MIT",
     "description": "Send and receive SMS using SmsDev.com.br",
