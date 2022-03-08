@@ -37,6 +37,9 @@ class SmsDev
      */
     private $_numberValidation = true;
 
+    private $_jobDate = null;
+    private $_jobTime = null;
+
     /**
      * API timezone.
      *
@@ -117,8 +120,16 @@ class SmsDev
             'key'    => $this->_apiKey,
             'type'   => 9,
             'number' => $number,
-            'msg'    => $message,
+            'msg'    => $message
         ];
+
+        if ($this->getJobDate()) {
+            $params['jobdate'] = $this->getJobDate();
+        }
+
+        if ($this->getJobTime()) {
+            $params['jobtime'] = $this->getJobTime();
+        }
 
         if ($refer) $params['refer'] = $refer;
 
@@ -147,6 +158,52 @@ class SmsDev
     public function setNumberValidation($validate = true)
     {
         $this->_numberValidation = (bool) $validate;
+    }
+
+    /**
+     * Set jobdate to next request
+     *
+     * @param string $jobDate Date format DD/MM/YYYY.
+     * @return void
+     */
+    public function setJobDate($jobDate)
+    {
+        $this->_jobDate = $jobDate;
+        
+        return $this;
+    }
+
+    /**
+     * Get jobdate to next request
+     *
+     * @return void
+     */
+    public function getJobDate()
+    {
+        return $this->_jobDate;
+    }
+
+    /**
+     * Set jobdate to next request
+     *
+     * @param string $jobTime Time format HH:mm.
+     * @return void
+     */
+    public function setJobTime($jobTime)
+    {
+        $this->_jobTime = $jobTime;
+        
+        return $this;
+    }
+
+     /**
+     * Get jobtime to next request
+     *
+     * @return void
+     */
+    public function getJobTime()
+    {
+        return $this->_jobTime;
     }
 
     /**
